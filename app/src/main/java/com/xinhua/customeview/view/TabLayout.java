@@ -70,6 +70,7 @@ public class TabLayout extends LinearLayout implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         //为tab的选择器做的工作
+        if(preTab!=null && preTab == v) return;
         TabView tab = (TabView) v;
         tab.setFocusable(true);
         if(preTab!=null){
@@ -85,6 +86,7 @@ public class TabLayout extends LinearLayout implements View.OnClickListener{
     public void setCurrentTab(int position){
         if(items!=null && items.size() > position && listener != null){
             //为tab的选择器做的工作
+            if(preTab != null && preTab == getCurrentTab()) return;
             TabView tab = (TabView) tabs.get(position);
             tab.setFocusable(true);
             if(preTab!=null){
@@ -98,9 +100,18 @@ public class TabLayout extends LinearLayout implements View.OnClickListener{
         }
     }
 
+
+    public TabView getCurrentTab(){
+        for(int i=0; tabs!=null && i<tabs.size();i++){
+            if(tabs.get(i).isEnabled()){
+                return tabs.get(i);
+            }
+        }
+        return null;
+    }
+
     public interface OnClickTabListener{
         void onClickTab(TabItem item);
     }
-
 
 }
