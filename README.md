@@ -2,7 +2,8 @@
 对多个tab对应多个页面的布局进行封装，方便开发
 
 效果图
-![image](https://github.com/sLiKangli/tabLayout.git/iamge/effect.gif.gif)
+
+![image](https://github.com/sLiKangli/tabLayout/blob/master/image/effect.gif.gif)
 
 
 这种布局再很多应用中非常常见，所有封装了一下，在以后的应用中可以直接使用
